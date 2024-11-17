@@ -17,6 +17,14 @@ FORCE_HTTPS=true
 # If not set, the first user's domain is allowed by default.
 ALLOWED_DOMAINS=
 
+# Outline SMTP settings (optional)
+SMTP_HOST=
+SMTP_PORT=
+SMTP_USERNAME=
+SMTP_PASSWORD=
+SMTP_FROM_EMAIL=
+SMTP_REPLY_EMAIL=
+
 # Docker image version
 OUTLINE_VERSION=0.81.0
 POSTGRES_VERSION=15.9-alpine3.20
