@@ -12,7 +12,7 @@ start:
 
 generate-cert:
 	mkdir -p ./data/nginx-certs
-	openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ./data/nginx-certs/nginx-selfsigned.key -out ./data/nginx-certs/nginx-selfsigned.crt
+	openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -addext "subjectAltName=DNS:wk-nginx" -keyout ./data/nginx-certs/nginx-selfsigned.key -out ./data/nginx-certs/nginx-selfsigned.crt
 
 update-ca-certs:
 	sleep 1
