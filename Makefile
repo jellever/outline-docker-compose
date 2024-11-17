@@ -10,6 +10,7 @@ start:
 	cd ./scripts && bash ./main.sh reload_nginx
 
 generate-cert:
+	mkdir ./data/nginx-certs
 	openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ./data/nginx-certs/nginx-selfsigned.key -out ./data/nginx-certs/nginx-selfsigned.crt
 
 install: generate-cert gen-conf start
