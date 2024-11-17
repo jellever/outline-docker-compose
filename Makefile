@@ -15,6 +15,7 @@ generate-cert:
 	openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ./data/nginx-certs/nginx-selfsigned.key -out ./data/nginx-certs/nginx-selfsigned.crt
 
 update-ca-certs:
+	sleep 1
 	${docker-compose} exec -u root ${outline_server_container} bash -c "update-ca-certificates"
 
 install: generate-cert gen-conf start update-ca-certs
