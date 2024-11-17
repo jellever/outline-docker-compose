@@ -82,6 +82,8 @@ function create_outline_env_file {
     env_replace SMTP_PASSWORD $SMTP_PASSWORD $env_file
     env_replace SMTP_FROM_EMAIL $SMTP_FROM_EMAIL $env_file
     env_replace SMTP_REPLY_EMAIL $SMTP_REPLY_EMAIL $env_file
+    env_replace SMTP_TLS_CIPHERS $SMTP_TLS_CIPHERS $env_file
+    env_replace SMTP_SECURE $SMTP_SECURE $env_file
 }
 
 function create_oidc_env_file {
