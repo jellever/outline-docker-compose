@@ -40,4 +40,4 @@ clean-data: clean-docker
 clean: clean-docker clean-conf
 
 generate-cert:
-	openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ./data/nginx/nginx-selfsigned.key -out ./data/nginx/nginx-selfsigned.crt
+	openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ./data/nginx-certs/nginx-selfsigned.key -out ./data/nginx-certs/nginx-selfsigned.crt
