@@ -75,6 +75,13 @@ function create_outline_env_file {
     env_replace AWS_S3_UPLOAD_BUCKET_URL $URL $env_file
 
     env_add ALLOWED_DOMAINS "$ALLOWED_DOMAINS" $env_file
+
+    env_replace SMTP_HOST $SMTP_HOST $env_file
+    env_replace SMTP_PORT $SMTP_PORT $env_file
+    env_replace SMTP_USERNAME $SMTP_USERNAME $env_file
+    env_replace SMTP_PASSWORD $SMTP_PASSWORD $env_file
+    env_replace SMTP_FROM_EMAIL $SMTP_FROM_EMAIL $env_file
+    env_replace SMTP_REPLY_EMAIL $SMTP_REPLY_EMAIL $env_file
 }
 
 function create_oidc_env_file {
