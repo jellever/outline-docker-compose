@@ -84,6 +84,7 @@ services:
     volumes:
       - ./config/nginx/:/etc/nginx/conf.d/:ro
       - ./data/uc/static_root:/uc/static_root:ro
+      - ./data/nginx-certs:/etc/nginx/certs
     restart: always
     depends_on:
 ##BEGIN MINIO 
