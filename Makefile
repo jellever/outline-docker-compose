@@ -1,4 +1,5 @@
 oidc_server_container=wk-oidc-server
+outline_server_container=wk-outline
 docker-compose := $(shell command -v docker-compose 2> /dev/null || echo "docker compose")
 
 gen-conf:
@@ -13,10 +14,13 @@ generate-cert:
 	mkdir -p ./data/nginx-certs
 	openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ./data/nginx-certs/nginx-selfsigned.key -out ./data/nginx-certs/nginx-selfsigned.crt
 
-install: generate-cert gen-conf start
+update-ca-certs:
+	${docker-compose} exec -u root ${oidc_server_container} bash -c "update-ca-certificates"
+
+install: generate-cert gen-conf start update-ca-certs
 	sleep 1
 	${docker-compose} exec ${oidc_server_container} bash -c "make init"
-	${docker-compose} exec ${oidc_server_container} bash -c "python manage.py loaddata oidc-server-outline-client"
+	${docker-compose} exec ${outline_server_container} bash -c "python manage.py loaddata oidc-server-outline-client"
 	cd ./scripts && bash ./main.sh reload_nginx
 
 restart: stop start
