@@ -57,6 +57,7 @@ services:
       - ./env.oidc
     volumes:
       - ./data/outline:/var/lib/outline/data
+      - ./data/nginx-certs/nginx-selfsigned.crt:/usr/local/share/ca-certificates/nginx-selfsigned.crt
     restart: always
     depends_on:
       - wk-postgres
