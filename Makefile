@@ -38,3 +38,6 @@ clean-data: clean-docker
 		./data/pgdata ./data/uc ./data/outline
 
 clean: clean-docker clean-conf
+
+generate-cert:
+	openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ./data/nginx/nginx-selfsigned.key -out ./data/nginx/nginx-selfsigned.crt
