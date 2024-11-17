@@ -12,8 +12,7 @@ start:
 generate-cert:
 	openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout ./data/nginx-certs/nginx-selfsigned.key -out ./data/nginx-certs/nginx-selfsigned.crt
 
-install: generate-cert
-	gen-conf start
+install: generate-cert gen-conf start
 	sleep 1
 	${docker-compose} exec ${oidc_server_container} bash -c "make init"
 	${docker-compose} exec ${oidc_server_container} bash -c "python manage.py loaddata oidc-server-outline-client"
